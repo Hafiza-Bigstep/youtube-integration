@@ -1,0 +1,45 @@
+@import 'shared/assets/styles/_variables.scss';
+
+.NavLinks {
+  margin: 0 auto;
+  display: flex;
+  margin-bottom: $spacing-7;
+
+  a {
+    display: flex;
+    align-items: center;
+    padding: 0.5em 1em;
+    margin-right: 1em;
+    font-size: 0.9em;
+    font-family: $font-family;
+    border-bottom: 2px solid black;
+    color: darkblue;
+
+    .icon {
+      margin-right: 0.3em;
+    }
+
+    &.active {
+      color: blue;
+      border-bottom: 2px solid currentColor;
+    }
+  }
+}
+
+@media (max-width: 1270px) {
+  .NavLinks {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: $spacing-4;
+
+    a {
+      margin-bottom: $spacing-2;
+    }
+  }
+}
+
+@include smallScreens {
+  .NavLinks {
+    margin-bottom: $spacing-9;
+  }
+}

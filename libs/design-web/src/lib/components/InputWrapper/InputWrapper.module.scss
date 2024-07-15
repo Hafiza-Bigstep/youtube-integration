@@ -1,0 +1,22 @@
+@import 'shared/assets/styles/_variables.scss';
+
+.InputWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.InputLabel {
+  font-family: $font-family;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1d1e20;
+  padding-bottom: $spacing-2;
+  text-align: left;
+
+  .InputLabelRequiredAsterisk {
+    margin-left: $spacing-1;
+    color: #c7200a;
+  }
+}

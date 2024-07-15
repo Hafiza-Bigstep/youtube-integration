@@ -1,0 +1,16 @@
+@import 'shared/assets/styles/_variables.scss';
+
+.DropdownWrapper {
+  position: relative;
+}
+
+.DropdownLabel {
+  font-family: $font-family;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  .DropdownLabelRequiredAsterisk {
+    margin-left: $spacing-1;
+    color: #c7200a;
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "plugins": ["@nx"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx",".css",".scss"],
+        "path": ["./src"]
+      },
+      "typescript": {
+        "alwaysTryTypes": true
+      },
+      "alias": {
+        "map": [
+          ["components", "./src/components"],
+          ["helpers", "./src/helpers"],
+          ["pages", "./src/pages"],
+          ["static", "./src/static"]
+        ],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    },
+    "import/extensions": [
+      ".css",
+      ".scss",
+      ".js",
+      ".ts",
+      ".jsx",
+      ".tsx"
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "@nx/enforce-module-boundaries": [
+          "warn",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "app:client",
+                "onlyDependOnLibsWithTags": ["lib:client"]
+              },
+              {
+                "sourceTag": "lib:client",
+                "onlyDependOnLibsWithTags": ["lib:client"]
+              },
+              {
+                "sourceTag": "app:server",
+                "onlyDependOnLibsWithTags": ["lib:server"]
+              },
+              {
+                "sourceTag": "lib:server",
+                "onlyDependOnLibsWithTags": ["lib:server"]
+              },
+              {
+                "sourceTag": "devtool",
+                "onlyDependOnLibsWithTags": ["lib:server", "lib:client"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nx/typescript"],
+      "rules": {
+         "@typescript-eslint/no-empty-function":"off"
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nx/javascript"],
+      "rules": {
+
+      }
+    },
+    {
+      "files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
+      "env": {
+        "jest": true
+      },
+      "rules": {}
+    }
+  ]
+}

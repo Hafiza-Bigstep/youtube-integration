@@ -1,0 +1,23 @@
+{
+  "name": "web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/web/src",
+  "projectType": "application",
+  "tags": ["app:client"],
+  "implicitDependencies": ["shared"],
+  "// targets": "to see all targets run: nx show project web --web",
+  "targets": {
+    "build": {
+      "executor": "@nx/web:webpack",
+      "options": {
+        "postcssConfig": "packages/web/postcss.config.js"
+      }
+    },
+    "type-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -b packages/web/tsconfig.app.json"
+      }
+    }
+  }
+}

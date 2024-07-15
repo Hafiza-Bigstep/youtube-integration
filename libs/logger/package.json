@@ -1,0 +1,13 @@
+{
+  "name": "logger",
+  "version": "1.0.0",
+  "description": "This library was generated with [Nx](https://nx.dev).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write ."
+  },
+  "author": "",
+  "private": true,
+  "license": "priavte"
+}

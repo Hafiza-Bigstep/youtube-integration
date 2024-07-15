@@ -1,0 +1,23 @@
+{
+  "name": "constants",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/constants/src",
+  "projectType": "library",
+  "tags": ["lib:server"],
+  "// targets": "to see all targets run: nx show project constants --web",
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/constants/**/*.ts"]
+      }
+    },
+    "type-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -b libs/constants/tsconfig.lib.json"
+      }
+    }
+  }
+}

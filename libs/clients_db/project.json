@@ -1,0 +1,39 @@
+{
+  "name": "clients-db",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/clients_db/src",
+  "projectType": "library",
+  "tags": ["lib:server"],
+  "// targets": "to see all targets run: nx show project clients-db --web",
+  "targets": {
+    "codegen": {
+      "executor": "nx:run-commands",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "command": "prisma generate --schema schema.prisma",
+        "cwd": "libs/clients_db"
+      }
+    },
+    "type-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -b libs/clients_db/tsconfig.lib.json"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/clients_db/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/clients_db/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

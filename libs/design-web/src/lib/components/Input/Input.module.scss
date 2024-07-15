@@ -1,0 +1,21 @@
+@import 'shared/assets/styles/_variables.scss';
+
+// .InputLabelRequiredAstrisk {
+//   margin-left: $spacing-1;
+//   color: red
+// }
+
+.InputWrapper {
+  position: relative;
+}
+
+.InputLabel {
+  font-family: $font-family;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  .InputLabelRequiredAsterisk {
+    margin-left: $spacing-1;
+    color: #c7200a;
+  }
+}

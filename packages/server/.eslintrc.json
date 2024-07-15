@@ -1,0 +1,21 @@
+{
+  "extends": ["../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*", "scripts/**", "swagger/**"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {},
+      "excludedFiles": ["./scripts/*", "./swagger/*"]
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {},
+      "excludedFiles": ["./scripts/*", "./swagger/*"]
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {},
+      "excludedFiles": ["./scripts/*", "./swagger/*"]
+    }
+  ]
+}

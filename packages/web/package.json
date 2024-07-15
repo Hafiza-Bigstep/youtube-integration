@@ -1,0 +1,27 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "Portal",
+  "main": "postcss.config.js",
+  "private": true,
+  "license": "priavte",
+  "author": "",
+  "scripts": {
+    "start": "webpack-cli serve",
+    "analyze": "webpack-cli --progress --config webpack.config.js --json | webpack-bundle-size-analyzer",
+    "clean": "rimraf build",
+    "type-check": "tsc -b",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "react-perfect-scrollbar": "1.5.8",
+    "react-router-dom": "6.24.0",
+    "design-web": "1.0.0",
+    "shared": "1.0.0"
+  },
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}

@@ -1,0 +1,32 @@
+@import 'shared/assets/styles/_variables.scss';
+@import 'shared/assets/styles/_mixins.scss';
+
+.lengthIndicator {
+  margin-top: $spacing-1;
+  bottom: 0;
+  right: 0.3em;
+  font-size: 0.8em;
+}
+
+.overMaxLimit {
+  color: $color-error;
+  animation: shake 0.2s ease-in-out;
+  animation-iteration-count: 2;
+  $shakeLength: 6px;
+
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX($shakeLength);
+    }
+
+    50% {
+      transform: translateX($shakeLength);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+}

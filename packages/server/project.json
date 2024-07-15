@@ -1,0 +1,90 @@
+{
+  "name": "server",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/server/src",
+  "projectType": "application",
+  "tags": ["app:server"],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/server",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "packages/server/src/main.ts",
+        "tsConfig": "packages/server/tsconfig.app.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "packages/server/src/assets",
+            "output": "packages/server/src/assets/"
+          },
+          {
+            "glob": "**/*",
+            "input": "packages/server/swagger",
+            "output": "packages/server/swagger/"
+          }
+        ],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "generateLockfile": true,
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "constants",
+        "logger",
+        "errors",
+        "clients-db",
+        "auth-strategies"
+      ]
+    },
+    "type-check": {
+      "executor": "nx:run-commands",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "command": "tsc -b packages/server/tsconfig.app.json"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "server:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "server:build:development"
+        },
+        "production": {
+          "buildTarget": "server:build:production"
+        }
+      }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "command": "docker build -f packages/server/Dockerfile . -t server"
+    }
+  }
+}

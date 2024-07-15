@@ -1,0 +1,23 @@
+{
+  "name": "design-web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/design-web/src",
+  "projectType": "library",
+  "tags": ["lib:client"],
+  "// targets": "to see all targets run: nx show project design-web --web",
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/design-web/src/lib/**/*.ts"]
+      }
+    },
+    "type-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -b libs/design-web/tsconfig.lib.json"
+      }
+    }
+  }
+}

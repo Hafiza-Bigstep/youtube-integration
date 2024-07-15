@@ -1,0 +1,22 @@
+.TextAreaWrapper {
+  margin-bottom: 10px;
+}
+
+.TextAreaLabel {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.TextArea {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 2px solid #e0e6ed;
+  border-radius: 4px;
+}
+
+.TextArea:disabled {
+  background-color: #f0f0f0;
+  color: #999;
+}
