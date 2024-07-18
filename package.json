@@ -37,6 +37,7 @@
     "eventemitter3": "^5.0.1",
     "express": "4.18.1",
     "formik": "^2.4.6",
+    "googleapis": "^140.0.1",
     "lodash": "^4.17.21",
     "lottie-web": "^5.12.2",
     "mantine-datatable": "^7.11.1",
@@ -140,8 +141,7 @@
     "**/*.{js,jsx,ts,tsx}": [
       "yarn lint",
       "yarn type-check",
-      "yarn format",
-      "git add --all"
+      "yarn format"
     ]
   }
 }
