@@ -4,6 +4,7 @@ import { authModule } from './auth_module';
 import { userModule } from './user_module';
 import { roleModule } from './role_module';
 import { imageModule } from './image_module';
+import { youtubeModule } from './youtube_module';
 
 import { loggingModule } from 'logger';
 
@@ -28,6 +29,7 @@ mainContainer.load(prismaClientModule);
 mainContainer.load(authModule);
 mainContainer.load(loggingModule);
 mainContainer.load(userModule);
+mainContainer.load(youtubeModule);
 mainContainer.load(authStrategyModule);
 mainContainer.load(roleModule);
 mainContainer.load(imageModule);
