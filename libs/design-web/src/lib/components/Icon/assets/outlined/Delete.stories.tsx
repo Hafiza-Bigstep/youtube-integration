@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Delete from './Delete';
+import { Delete } from './Delete';
 
 const meta: Meta<typeof Delete> = {
   component: Delete,
