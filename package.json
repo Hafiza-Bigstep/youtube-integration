@@ -20,7 +20,8 @@
     "clean": "rimraf .nx && rimraf tmp && rimraf dist && rimraf packages/**/node_modules && rimraf libs/**/node_modules",
     "precommit": "lint-staged",
     "prestart": "nx run-many --targets=codegen",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "jest"
   },
   "private": true,
   "packageManager": "yarn@1.22.19",
@@ -38,6 +39,7 @@
     "express": "4.18.1",
     "formik": "^2.4.6",
     "googleapis": "^140.0.1",
+    "ioredis": "^5.4.1",
     "lodash": "^4.17.21",
     "lottie-web": "^5.12.2",
     "mantine-datatable": "^7.11.1",
