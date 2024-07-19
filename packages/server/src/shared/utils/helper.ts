@@ -12,13 +12,9 @@ const setRedisKey = async (key, value, expiryTime) => {
   await redisClient.set(key, value, 'EX', expiryTime);
 };
 
-const checkIfRedisKeyExists = async (key) => {
+const checkIfRedisKeyExists = async key => {
   const redisClient = redis.getInstance();
   return redisClient?.get(key);
 };
 
-export {
-  omitEmpty,
-  checkIfRedisKeyExists,
-  setRedisKey
-};
+export { omitEmpty, checkIfRedisKeyExists, setRedisKey };

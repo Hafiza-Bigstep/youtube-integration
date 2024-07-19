@@ -1,6 +1,9 @@
 import { google, youtube_v3 } from 'googleapis';
 import { injectable } from 'inversify';
-import { checkIfRedisKeyExists,setRedisKey } from '../../../shared/utils/helper';
+import {
+  checkIfRedisKeyExists,
+  setRedisKey,
+} from '../../../shared/utils/helper';
 
 @injectable()
 export class YoutubeService {
@@ -15,8 +18,10 @@ export class YoutubeService {
 
   async searchVideos(req) {
     const { searchTerm: q, type, maxResults, pageToken } = req.query;
-    const cacheKey = `youtube_search:${q}:${type || ''}:${maxResults}:${pageToken || ''}`;
-    
+    const cacheKey = `youtube_search:${q}:${type || ''}:${maxResults}:${
+      pageToken || ''
+    }`;
+
     //check if there's a cached result for this request
     const cachedResult = await checkIfRedisKeyExists(cacheKey);
     if (cachedResult) {
@@ -50,7 +55,7 @@ export class YoutubeService {
     };
 
     // Cache the result for future requests
-    await setRedisKey(cacheKey, JSON.stringify(result), 3600); 
+    await setRedisKey(cacheKey, JSON.stringify(result), 3600);
 
     return result;
   }

@@ -32,9 +32,13 @@ const redisClient = (function () {
 
   function createInstance(): Redis {
     const client = new Redis(getOptions());
-    
-    client.on('connect', () => console.log('server/lib: redis connected successfully'));
-    client.on('error', (error) => console.log(`error connecting to redis server: ${error}`, 'error'));
+
+    client.on('connect', () =>
+      console.log('server/lib: redis connected successfully')
+    );
+    client.on('error', error =>
+      console.log(`error connecting to redis server: ${error}`, 'error')
+    );
 
     return client;
   }
